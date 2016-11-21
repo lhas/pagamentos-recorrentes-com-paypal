@@ -1,0 +1,10 @@
+{
+    "name": "root/pagamentos-recorrentes-com-paypal",
+    "authors": [
+        {
+            "name": "lhas",
+            "email": "luizhrqas@gmail.com"
+        }
+    ],
+    "require": {}
+}
