@@ -78,8 +78,8 @@ function activatePlan($apiContext, $plan) {
 function createAgreement($apiContext, $createdPlan) {
   $agreement = new Agreement();
 
-  $agreement->setName('Base Agreement')
-    ->setDescription('Basic Agreement')
+  $agreement->setName('Assinatura para Plano User Premium')
+    ->setDescription('Assinatura para Plano User Premium')
     ->setStartDate('2019-06-17T9:45:04Z');
 
   $plan = new Plan();
@@ -93,6 +93,10 @@ function createAgreement($apiContext, $createdPlan) {
   return $agreement->create($apiContext);
 }
 
+function redirectUser($url) {
+  header('Location: ' . $url);
+}
+
 // Criamos um plano chamado "User Premium".
 // Este plano será cobrado a cada 1 ($frequencyInterval) mês ($frequency) durante 12 meses ($cycles)
 // com um preço de R$ 50 ($amountCurrency e $amountValue).
@@ -101,8 +105,8 @@ $userPremiumPlan = createPlan($apiContext, 'User Premium Plan', 'A premium plan 
 // Agora vamos ativar o plano
 $userPremiumPlan = activatePlan($apiContext, $userPremiumPlan);
 
+// Criamos a assinatura
 $userPremiumAgreement = createAgreement($apiContext, $userPremiumPlan);
 
+// Redirecionamos usuário para a página de pagamento
 redirectUser($userPremiumAgreement->getApprovalLink());
-
-var_dump($userPremiumAgreement);
