@@ -6,5 +6,7 @@
             "email": "luizhrqas@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "paypal/rest-api-sdk-php": "*"
+    }
 }
